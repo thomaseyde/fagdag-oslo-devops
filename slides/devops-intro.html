@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="image">
+  <meta name="dcterms.date" content="2019-04-26">
+  <title>devops</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./reveal.js/css/reveal.css">
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? './reveal.js/css/print/pdf.css' : './reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="./reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">devops</h1>
+  <p class="author"><img data-src="./sonat.png" alt="image" /></p>
+  <p class="date">April 26, 2019</p>
+</section>
+
+<section id="plan" class="title-slide slide level1"><h1>Plan</h1></section>
+<section id="section" class="title-slide slide level1"><h1></h1><div>
+<ul>
+<li>Hallvard provides us with latest news before 9:00</li>
+<li>Introduction. History of devops 9:00</li>
+<li>CI Tools 10:00</li>
+<li>CircleCI part1 10:00</li>
+<li>Workshop 10:45</li>
+<li>Dinner 12:00</li>
+<li>CircleCI part2 12:30</li>
+<li>Workshop 13:00</li>
+<li>DevSecOps 14:30</li>
+<li>Workshop 14:45</li>
+<li>Conclusion 15:30</li>
+</ul>
+</div></section>
+<section id="why-are-we-here-today" class="title-slide slide level1"><h1>Why are we here today?</h1><div>
+<ul>
+<li class="fragment">See each other</li>
+<li class="fragment">Listen</li>
+<li class="fragment">Talk</li>
+<li class="fragment">Do exercises</li>
+<li class="fragment">Take something into your projects</li>
+<li class="fragment">Check notifications on your phone</li>
+</ul>
+</div></section>
+<section id="section-1" class="title-slide slide level1"><h1></h1><blockquote>
+<p>Failure sucks but instructs. Bob Sutton</p>
+</blockquote></section>
+<section id="what-is-devops" class="title-slide slide level1"><h1>What is devops?</h1><div>
+<ul>
+<li class="fragment">shared, clearly defined goals</li>
+<li class="fragment">ongoing communication</li>
+<li class="fragment">dynamic adjustment and repairs of understanding</li>
+</ul>
+</div></section>
+<section id="section-2" class="title-slide slide level1"><h1></h1><p><img data-src="./effective_devops_book_cover.png" data-heigth="50%" style="width:50.0%" /></p></section>
+<section id="shared-understanding" class="title-slide slide level1"><h1>Shared understanding</h1><div>
+<ul>
+<li class="fragment">Implementing a new feature that increases the value to customers</li>
+<li class="fragment">Maintaining safety and trust in communication with each other</li>
+</ul>
+</div></section>
+<section id="history-of-devops" class="title-slide slide level1"><h1>History of devops</h1></section>
+<section id="developer-as-operator-at-world-war-ii" class="title-slide slide level1"><h1>Developer as operator at World War II</h1></section>
+<section id="section-3" class="title-slide slide level1"><h1></h1><ul>
+<li>Jean Bartik and other 5 women learned to program ENIAC with no documentation and no plans</li>
+</ul></section>
+<section id="section-4" class="title-slide slide level1"><h1></h1><ul>
+<li>Programming ENIAC and its 18,000 vacuum tubes meant setting dials and changing out cable connections across 40 control panels.</li>
+</ul></section>
+<section id="section-5" class="title-slide slide level1"><h1></h1><ul>
+<li>The hardware engineers would come and proclaim</li>
+</ul>
+<blockquote>
+<p>“It’s not the machine; it’s the operators.”</p>
+</blockquote></section>
+<section id="advent-of-software-engineering-for-moon-landing" class="title-slide slide level1"><h1>Advent of software engineering for moon landing</h1></section>
+<section id="section-6" class="title-slide slide level1"><h1></h1><p>Margaret Hamilton while working at NASA is credited with coining the term <em>sofware engineering</em></p></section>
+<section id="software-engineering-concerns" class="title-slide slide level1"><h1>Software engineering concerns</h1></section>
+<section id="section-7" class="title-slide slide level1"><h1></h1><div>
+<ul>
+<li class="fragment">debugging all individual components</li>
+<li class="fragment">testing individual components prior assembly</li>
+<li class="fragment">integration testing</li>
+</ul>
+</div></section>
+<section id="nato-software-engineering-conference-1968" class="title-slide slide level1"><h1>NATO Software Engineering conference 1968</h1></section>
+<section id="section-8" class="title-slide slide level1"><h1></h1><p>Key problems with software engineering:</p>
+<div>
+<ul>
+<li class="fragment">defining and measuring success</li>
+<li class="fragment">building complex systems requiring large investments and unknown feasibility</li>
+<li class="fragment">producing systems on schedule and to spec</li>
+<li class="fragment">putting economic pressures on manufacturers to build specific products</li>
+</ul>
+</div></section>
+<section id="advent-of-proprietary-software-and-standardization" class="title-slide slide level1"><h1>Advent of proprietary software and standardization</h1></section>
+<section id="section-9" class="title-slide slide level1"><h1></h1><div>
+<ul>
+<li class="fragment">Until 1964 it was common to build computers to customer requirements</li>
+<li class="fragment">Software and hardware were not standardized or interchangeable</li>
+<li class="fragment">In 1964 IBM announces mainframe System/360</li>
+<li class="fragment">In 1969 IBM again impacted the industry by decoupling software and hardware</li>
+<li class="fragment">This changed how software was viewed</li>
+<li class="fragment">It suddenly acquired significant monetary value of itself and was not provided openly</li>
+</ul>
+</div></section>
+<section id="age-of-network" class="title-slide slide level1"><h1>Age of network</h1></section>
+<section id="section-10" class="title-slide slide level1"><h1></h1><div>
+<ul>
+<li class="fragment">Usenet was started in 1979</li>
+<li class="fragment">facilitated sharing of knowledge</li>
+<li class="fragment">talking about solving problems outside of companies was not done in fear of losing competitive advantage</li>
+<li class="fragment">cultural siloization grew in complexity</li>
+<li class="fragment">Institutional Tower of Babel</li>
+<li class="fragment">high level programming languages meant programmers moved farther away from hardware</li>
+</ul>
+</div></section>
+<section id="beginnings-of-global-community-via-interconnected-networks" class="title-slide slide level1"><h1>Beginnings of global community via interconnected networks</h1></section>
+<section id="section-11" class="title-slide slide level1"><h1></h1><div>
+<ul>
+<li class="fragment">user groups</li>
+<li class="fragment">One of the first: DECUS Digital Equipment Computer User’s Society</li>
+<li class="fragment">Contrary to focus on knowledge sharing, there was a great deal of secrecy regarding their practices</li>
+</ul>
+</div></section>
+<section id="age-of-applications-and-the-web" class="title-slide slide level1"><h1>Age of applications and the Web</h1></section>
+<section id="section-12" class="title-slide slide level1"><h1></h1><div>
+<ul>
+<li class="fragment">1995 Apache HTTP server is released</li>
+<li class="fragment">marks the beginning of a trend toward open source solutions</li>
+<li class="fragment">Linux, Apache, MySQL, PHP</li>
+<li class="fragment">The Bastard Operator From Hell</li>
+<li class="fragment">ops say no since “it’s critical to preserve stability”</li>
+<li class="fragment">devs say “it’s critical to get these changes out”</li>
+</ul>
+</div></section>
+<section id="growth-of-software-development-methodologies" class="title-slide slide level1"><h1>Growth of Software Development Methodologies</h1></section>
+<section id="section-13" class="title-slide slide level1"><h1></h1><div>
+<ul>
+<li class="fragment">2001 Extreme programming</li>
+<li class="fragment">Agile development</li>
+<li class="fragment">2004 Agile Manifesto</li>
+</ul>
+</div></section>
+<section id="open-source-software-proprietary-services" class="title-slide slide level1"><h1>Open Source Software, Proprietary Services</h1></section>
+<section id="section-14" class="title-slide slide level1"><h1></h1><div>
+<ul>
+<li class="fragment">web software commodization</li>
+<li class="fragment">2006 Amazon launches EC2 &amp; S3</li>
+<li class="fragment">virtualized compute &amp; storage resources via proprietary service</li>
+<li class="fragment">ease of use</li>
+<li class="fragment">low entry cost</li>
+<li class="fragment">flexibility</li>
+<li class="fragment">2006 Twitter</li>
+</ul>
+</div></section>
+<section id="agile-infrastructure-at-agile-2008-conference" class="title-slide slide level1"><h1>Agile Infrastructure at Agile 2008 conference</h1></section>
+<section id="section-15" class="title-slide slide level1"><h1></h1><div>
+<ul>
+<li class="fragment">‘Agile operaitons and Infrastucture’ Patrick Debois</li>
+<li class="fragment">‘Agile Infrastructure’ Andrew Clay Shafer, but did not attend himself</li>
+<li class="fragment">Patrick contacted him</li>
+<li class="fragment">2009 O’Reilly Velocity conference, Allspaw &amp; Hammond ‘10+ deploys per day’</li>
+</ul>
+</div></section>
+<section id="beginning-of-devopsdays" class="title-slide slide level1"><h1>Beginning of devopsdays</h1><p>October 2009 Patrick Debois after he did not manage to visit Velocity conference organises first devopsdays conference</p>
+<blockquote>
+<p>I was kinda giving up, maybe the idea was too crazy: developers and ops working together</p>
+</blockquote></section>
+<section id="current-state-of-devops" class="title-slide slide level1"><h1>Current state of devops</h1></section>
+<section id="section-16" class="title-slide slide level1"><h1></h1><p>Companies doing devops are outperforming those who aren’t</p></section>
+<section id="section-17" class="title-slide slide level1"><h1></h1><p>showing numerically that an emphasis on having individuals work together effectively is better for business than silos full of engineers who do not play well with others.</p></section>
+<section id="devops-organizations" class="title-slide slide level1"><h1>devops organizations</h1><ul>
+<li>deploy more frequently</li>
+<li>have fewer failures</li>
+<li>recover faster</li>
+<li>have happier employees</li>
+</ul></section>
+<section><section id="historical-links" class="title-slide slide level1"><h1>Historical links</h1></section><section id="allspaw-hammond-10-deploys-per-day-at-fickr" class="slide level2">
+<h2>Allspaw, Hammond, “10+ Deploys Per Day at Fickr”</h2>
+<p><a href="http://www.youtube.com/watch?v=LdOe18KhtT4"><img data-src="http://img.youtube.com/vi/LdOe18KhtT4/0.jpg" alt="Video" /></a></p>
+</section><section id="the-short-history-of-devops" class="slide level2">
+<h2>The (Short) History of DevOps</h2>
+<p><a href="http://www.youtube.com/watch?v=o7-IuYS0iSE"><img data-src="http://img.youtube.com/vi/o7-IuYS0iSE/0.jpg" alt="Video" /></a></p>
+</section><section id="dev2ops.org" class="slide level2">
+<h2>dev2ops.org</h2>
+<p><a href="http://dev2ops.org/2007/08/" class="uri">http://dev2ops.org/2007/08/</a></p>
+</section></section>
+<section id="from" class="title-slide slide level1"><h1>From</h1><p>“Please go faster”</p>
+<p><img data-src="./this_department_worked_days.png" data-heigth="50%" style="width:50.0%" /></p></section>
+<section id="to" class="title-slide slide level1"><h1>To</h1><p>“Please slow down”</p>
+<p><img data-src="./not_right_now.jpeg" data-heigth="50%" style="width:50.0%" /></p></section>
+<section id="done-deployed" class="title-slide slide level1"><h1>Done == Deployed</h1></section>
+<section id="thank-you" class="title-slide slide level1"><h1>Thank you</h1></section>
+    </div>
+  </div>
+
+  <script src="./reveal.js/lib/js/head.min.js"></script>
+  <script src="./reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: './reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: './reveal.js/plugin/math/math.js', async: true },
+          { src: './reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
