@@ -10,3 +10,6 @@ jobs:
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: circle_test
+
+    steps:
+      - checkout
