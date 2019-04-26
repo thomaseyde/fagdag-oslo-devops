@@ -1,20 +1,12 @@
-version: 2.0
+version: 2
 jobs:
-  "workflow1":
-    docker:
-      - image: circleci/ruby:2.4.2-jessie-node
-      - image: circleci/postgres:9.4.12-alpine
-    working_directory: ~/testing-workflows
-    steps:
-      - checkout
-      - run:
-        name: bundle
-        command: |
-          bundle install --path vendor/bundle
-          bundle exec rake db:create db:schema:load
-          rake
-workflows:
-  version: 2
   build:
-    jobs:
-      - workflow1
+    
+    working_directory: ~/circleci-demo-java-spring
+
+    docker:
+      - image: circleci/openjdk:8-jdk-browsers
+      - image: circleci/postgres:9.6.3-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle_test

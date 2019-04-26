@@ -1,29 +1,31 @@
-report.xml
-.DS_Store
+target/
 
-/workdir
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
 
-# Compiled Object files, Static and Dynamic libs (Shared Objects)
-*.o
-*.a
-*.so
+# Compiled class file
+*.class
 
-# Folders
-_obj
-_test
+# Log file
+*.log
 
-# Architecture specific extensions/prefixes
-*.[568vq]
-[568vq].out
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
 
-*.cgo1.go
-*.cgo2.c
-_cgo_defun.c
-_cgo_gotypes.go
-_cgo_export.*
+.classpath
+.project
 
-_testmain.go
-
-*.exe
-*.test
-*.prof
+# Editor and IDE Specific
+.vscode/
+.settings/
